@@ -1,0 +1,19 @@
+<button class="btn btn-primary" (click)="goToParent()">go to parent</button>
+<ng-container>
+  <div>child</div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let parent of parentDataList">
+        <th scope="row"> {{parent.id}} </th>
+        <td> {{parent.value}} </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

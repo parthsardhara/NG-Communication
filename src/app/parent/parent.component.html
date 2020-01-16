@@ -1,0 +1,20 @@
+<button class="btn btn-primary" [hidden]="status == 'child'" (click)="goToChild()">go to child</button>
+<ng-container>
+  <div [hidden]="status == 'child'">parent</div>
+  <table class="table" [hidden]="status == 'child'" *ngIf="childDataList.length">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let child of childDataList">
+        <th scope="row"> {{child.id}} </th>
+        <td> {{child.value}} </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+<app-child [hidden]="status == 'parent'" [parentData]="parentData" (childData)="childDataMessage($event)"></app-child>
